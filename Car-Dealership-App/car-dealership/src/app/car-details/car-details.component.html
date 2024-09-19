@@ -1,0 +1,84 @@
+<div class="outwrapper">
+  <div *ngIf="car$ | async as car" class="car-details-container">
+    <h1>{{ car.brand }} {{ car.model }} ({{ car.year }})</h1>
+
+    <div class="car-images">
+      <img [src]="car.images[0]" [alt]="car.model" class="car-image" />
+    </div>
+
+    <div class="condition-badge" [ngClass]="{ used: !car.isNew }">
+      <mat-icon>{{ car.isNew ? "star" : "verified" }}</mat-icon>
+      {{ car.isNew ? "New" : "Used" }}
+    </div>
+
+    <hr class="divider" />
+
+    <h2 class="section-header">Pricing & Specs</h2>
+    <div class="specs-grid">
+      <div class="spec-item">
+        <mat-icon class="details-icon">attach_money</mat-icon>
+        <strong>Price:</strong> ${{ car.price }}
+      </div>
+      <div class="spec-item">
+        <mat-icon class="details-icon">speed</mat-icon>
+        <strong>Engine Power:</strong> {{ car.enginePower }} HP
+      </div>
+      <div class="spec-item">
+        <mat-icon class="details-icon">local_gas_station</mat-icon>
+        <strong>Fuel Type:</strong> {{ car.fuelType }}
+      </div>
+      <div class="spec-item">
+        <mat-icon class="details-icon">directions_car</mat-icon>
+        <strong>Distance Driven:</strong> {{ car.distance }} km
+      </div>
+      <div class="spec-item">
+        <mat-icon class="details-icon">settings</mat-icon>
+        <strong>Transmission:</strong> {{ car.transmission }}
+      </div>
+      <div class="spec-item">
+        <mat-icon class="details-icon">palette</mat-icon>
+        <strong>Color:</strong> {{ car.color }}
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <h2 class="section-header">General Information</h2>
+    <div class="info-grid">
+      <div class="info-item">
+        <mat-icon class="details-icon">category</mat-icon>
+        <strong>Type:</strong> {{ car.type }}
+      </div>
+      <div class="info-item">
+        <mat-icon class="details-icon">place</mat-icon>
+        <strong>Location:</strong> {{ car.location.city }},
+        {{ car.location.country }}
+      </div>
+      <div class="info-item description-item">
+        <mat-icon class="details-icon">description</mat-icon>
+        <strong>Description:</strong> {{ car.description }}
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <h2 class="section-header">Features</h2>
+    <div class="features-grid">
+      <div class="feature-item">
+        <mat-icon class="details-icon">door_sliding</mat-icon>
+        <strong>Doors:</strong> {{ car.doors }}
+      </div>
+      <div class="feature-item">
+        <mat-icon class="details-icon">airline_seat_recline_extra</mat-icon>
+        <strong>Seats:</strong> {{ car.seats }}
+      </div>
+    </div>
+
+    <button class="back-button" (click)="goHome()">Back to Home</button>
+  </div>
+
+  <div *ngIf="!(car$ | async)" class="loading-container">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p>Loading car details...</p>
+  </div>
+</div>

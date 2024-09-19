@@ -1,0 +1,174 @@
+/* Card Container */
+mat-card {
+  position: relative;
+  max-width: 460px; /* Increase the width */
+  height: 570px; /* Increase the height */
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+mat-card:hover {
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+}
+
+/* Card Image */
+.card-image {
+  overflow: hidden;
+  height: 260px; /* Increase image height */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e0e0e0;
+  border-bottom: 2px solid #ccc;
+}
+
+.card-image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.card-image img:hover {
+  transform: scale(1.1);
+}
+
+/* Card Header */
+mat-card-header {
+  padding-bottom: 8px;
+}
+
+/* Card Title */
+mat-card-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Card Subtitle */
+mat-card-subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+/* Card Content */
+mat-card-content {
+  flex-grow: 1;
+  padding: 12px 20px; /* Align with larger card size */
+  position: relative;
+}
+
+mat-card-content > p {
+  font-size: 16px;
+  padding: 5px 0;
+  margin: 5px 0;
+  color: #444;
+  line-height: 1.5;
+}
+
+mat-card-content .small-spacing {
+  margin: 2px 0;
+  padding: 2px 0;
+}
+
+/* Card Actions */
+mat-card-actions {
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 20px; /* Increase padding */
+  justify-content: space-around;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ccc;
+}
+
+mat-card-actions button {
+  background: linear-gradient(to right, #ff0080, #ff8c00);
+  color: #fff;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+mat-card-actions mat-icon {
+  font-size: 24px;
+}
+
+/* Location Display */
+.location-display {
+  font-size: 16px;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Details Button */
+.details-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  background: linear-gradient(to right, #ff0080, #ff8c00);
+  color: #fff;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.details-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.details-button mat-icon {
+  font-size: 24px;
+}
+
+/* Car Description */
+.car-description {
+  font-size: 15px;
+  color: #555;
+  margin: 12px 0;
+  line-height: 1.6;
+  padding: 0 15px;
+  text-align: justify;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+@media (max-width: 768px) {
+  mat-card {
+    margin: 10px;
+  }
+
+  .mat-card-title,
+  .mat-card-subtitle {
+    text-align: center;
+  }
+
+  .mat-card-actions {
+    justify-content: center;
+  }
+}

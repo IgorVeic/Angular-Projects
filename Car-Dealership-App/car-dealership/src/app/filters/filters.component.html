@@ -1,0 +1,111 @@
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Show / Hide Filters</mat-expansion-panel-header>
+    <div class="carFilter">
+      <div class="filterGroup">
+        <mat-radio-group>
+          <mat-label>
+            <mat-icon class="filter-icon">local_gas_station</mat-icon> Fuel
+            Types:
+          </mat-label>
+          <mat-radio-button
+            *ngFor="let fuelTypeOption of fuelTypeOptions; trackBy: trackByFn"
+            [value]="fuelTypeOption"
+            [checked]="fuelTypeOption === fuelType()"
+            (click)="onFuelTypeChange.emit(fuelTypeOption)"
+          >
+            {{ fuelTypeOption }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div class="filterGroup">
+        <mat-label>
+          <mat-icon class="filter-icon">settings</mat-icon> Transmission:
+        </mat-label>
+        <div class="transmission-group">
+          <mat-radio-group>
+            <mat-radio-button
+              *ngFor="
+                let transmissionOption of transmissionOptions;
+                trackBy: trackByFn
+              "
+              [value]="transmissionOption"
+              [checked]="transmissionOption === transmission()"
+              (click)="onTransmissionChange.emit(transmissionOption)"
+            >
+              {{ transmissionOption }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
+      <div class="filterGroup">
+        <mat-label>
+          <mat-icon class="filter-icon">drive_eta</mat-icon> Condition (State):
+        </mat-label>
+        <div class="state-group">
+          <mat-radio-group>
+            <mat-radio-button
+              *ngFor="let stateOption of stateOptions; trackBy: trackByFn"
+              [value]="stateOption"
+              [checked]="stateOption === carState()"
+              (click)="onCarStateChange.emit(stateOption)"
+            >
+              {{ stateOption }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
+      <div class="filterGroup">
+        <mat-label>
+          <mat-icon class="filter-icon">palette</mat-icon> Color:
+        </mat-label>
+        <button mat-button [matMenuTriggerFor]="menu">Palette</button>
+        <mat-menu #menu="matMenu" class="color-menu">
+          <button
+            mat-menu-item
+            *ngFor="let carColorOption of carColorOptions; trackBy: trackByFn"
+            class="color-option"
+            (click)="onCarColorChange.emit(carColorOption)"
+          >
+            {{ carColorOption }}
+          </button>
+        </mat-menu>
+      </div>
+
+      <div class="filterGroup">
+        <mat-label>
+          <mat-icon class="filter-icon">attach_money</mat-icon> Price range:
+        </mat-label>
+        <mat-slider
+          min="1000"
+          max="400000"
+          step="1000"
+          showTickMarks
+          discrete
+          [displayWith]="formatLabel"
+        >
+          <input
+            matSliderStartThumb
+            [ngModel]="minimalPrice()"
+            (ngModelChange)="onMinimalPriceChange.emit($event)"
+          />
+          <input
+            matSliderEndThumb
+            [ngModel]="maximalPrice()"
+            (ngModelChange)="onMaximalPriceChange.emit($event)"
+          />
+        </mat-slider>
+      </div>
+    </div>
+
+    <!-- Reset Button positioned below filters -->
+    <div class="filterGroup">
+      <button mat-button class="search-new-button" (click)="resetFilters()">
+        Reset Filters
+      </button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

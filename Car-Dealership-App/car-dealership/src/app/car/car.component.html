@@ -1,0 +1,101 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> {{ car?.brand }} {{ car?.model }} </mat-card-title>
+    <mat-card-subtitle> {{ car?.year }} | ${{ car?.price }} </mat-card-subtitle>
+    <!-- Button in the upper right corner for redirecting to car details -->
+    <button
+      mat-icon-button
+      class="details-button"
+      [routerLink]="['/cars', car?.id]"
+      matTooltip="View Details"
+    >
+      <mat-icon>info</mat-icon>
+    </button>
+  </mat-card-header>
+
+  <div class="card-image">
+    <img
+      mat-card-image
+      [src]="car?.images?.[0]"
+      [alt]="car?.brand + ' ' + car?.model"
+      height="auto"
+      width="100%"
+    />
+  </div>
+
+  <mat-card-content>
+    <!-- Car Description -->
+    <p class="car-description">
+      {{ car?.description }}
+    </p>
+
+    <p *ngIf="showLocation" class="small-spacing">
+      Location: {{ car?.location?.city }}, {{ car?.location?.country }}
+    </p>
+
+    <p *ngIf="showEnginePower" class="small-spacing">
+      Engine Power: {{ car?.enginePower }} HP
+    </p>
+
+    <p *ngIf="showDistance" class="small-spacing">
+      Distance: {{ car?.distance }} km
+    </p>
+
+    <p *ngIf="showFuelType" class="small-spacing">
+      Fuel Type: {{ car?.fuelType }}
+    </p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <!-- Existing Buttons for Location, Engine Power, Distance, Fuel Type -->
+    <button
+      *ngIf="car?.location?.city && car?.location?.country"
+      mat-fab
+      [matTooltip]="car?.location?.city + ', ' + car?.location?.country"
+      matBadgeColor="primary"
+      (click)="toggleLocation()"
+    >
+      <mat-icon>place</mat-icon>
+    </button>
+
+    <button
+      *ngIf="car?.enginePower !== null && car?.enginePower !== undefined"
+      mat-fab
+      [matTooltip]="car?.enginePower + ' HP'"
+      matBadgeColor="primary"
+      (click)="toggleEnginePower()"
+    >
+      <mat-icon>speed</mat-icon>
+    </button>
+
+    <button
+      *ngIf="car?.distance !== null && car?.distance !== undefined"
+      mat-fab
+      [matTooltip]="car?.distance + ' km'"
+      matBadgeColor="primary"
+      (click)="toggleDistance()"
+    >
+      <mat-icon>directions_car</mat-icon>
+    </button>
+
+    <button
+      *ngIf="car?.fuelType"
+      mat-fab
+      [matTooltip]="car?.fuelType"
+      matBadgeColor="primary"
+      (click)="toggleFuelType()"
+    >
+      <mat-icon>local_gas_station</mat-icon>
+    </button>
+
+    <!-- Add to Cart Button -->
+    <button
+      mat-fab
+      color="primary"
+      matTooltip="Add to Cart"
+      (click)="addToCart(car)"
+    >
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

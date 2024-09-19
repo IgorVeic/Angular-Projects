@@ -1,0 +1,36 @@
+export function generateRandomLocation(): { city: string; country: string } {
+  const citiesAndCountries = [
+    { city: 'New York', country: 'USA' },
+    { city: 'Berlin', country: 'Germany' },
+    { city: 'Tokyo', country: 'Japan' },
+    { city: 'Paris', country: 'France' },
+    { city: 'Sydney', country: 'Australia' },
+    { city: 'Toronto', country: 'Canada' },
+    { city: 'São Paulo', country: 'Brazil' },
+    { city: 'Johannesburg', country: 'South Africa' },
+    { city: 'Mumbai', country: 'India' },
+    { city: 'Beijing', country: 'China' },
+    { city: 'London', country: 'United Kingdom' },
+    { city: 'Moscow', country: 'Russia' },
+    { city: 'Rome', country: 'Italy' },
+    { city: 'Madrid', country: 'Spain' },
+    { city: 'Buenos Aires', country: 'Argentina' },
+    { city: 'Cairo', country: 'Egypt' },
+    { city: 'Istanbul', country: 'Turkey' },
+    { city: 'Seoul', country: 'South Korea' },
+    { city: 'Mexico City', country: 'Mexico' },
+    { city: 'Bangkok', country: 'Thailand' },
+    { city: 'Lagos', country: 'Nigeria' },
+    { city: 'Nairobi', country: 'Kenya' },
+    { city: 'Dubai', country: 'United Arab Emirates' },
+    { city: 'Singapore', country: 'Singapore' },
+    { city: 'Hong Kong', country: 'China' },
+    { city: 'Lima', country: 'Peru' },
+    { city: 'Vienna', country: 'Austria' },
+    { city: 'Stockholm', country: 'Sweden' },
+    { city: 'Zurich', country: 'Switzerland' },
+    { city: 'Amsterdam', country: 'Netherlands' },
+  ];
+  const randomIndex = Math.floor(Math.random() * citiesAndCountries.length);
+  return citiesAndCountries[randomIndex];
+}

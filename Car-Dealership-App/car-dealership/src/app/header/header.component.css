@@ -1,0 +1,138 @@
+header {
+  background: linear-gradient(to right, #ff0080, #ff8c00, #ff0080);
+  color: #fff;
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin-bottom: 30px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the left */
+  width: 100%;
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 170px;
+  height: auto;
+}
+
+/* h1 {
+  margin: 0;
+  font-size: 2.5rem;
+} */
+
+/* Navigation links with gradient effect */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start; /* Align items to the left */
+}
+
+nav ul li {
+  cursor: pointer;
+  margin-left: 20px; /* Add some spacing to the left of each link */
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  transition: color 0.3s ease, transform 0.3s ease;
+  font-size: 1rem;
+}
+
+nav ul li a:hover {
+  color: #fff;
+  transform: scale(1.1);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+}
+
+.active {
+  color: #ff0080;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .logo {
+    width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .branding {
+    width: 100%;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-top: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    width: 100%;
+  }
+
+  nav ul li {
+    margin-bottom: 10px;
+  }
+
+  nav ul li a {
+    font-size: 1.3rem;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 10px;
+  }
+
+  .logo {
+    width: 130px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  nav ul {
+    padding-top: 5px;
+  }
+
+  nav ul li a {
+    font-size: 1.2rem;
+  }
+}

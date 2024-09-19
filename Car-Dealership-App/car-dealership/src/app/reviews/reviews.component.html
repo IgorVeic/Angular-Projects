@@ -1,0 +1,30 @@
+<h1 class="reviews-title">What Our Customers Say</h1>
+<div class="reviews-carousel">
+  <div *ngFor="let review of reviews" class="review-item">
+    <div class="review-header">
+      <mat-icon class="user-icon">person</mat-icon>
+      <h3>{{ review.name }}</h3>
+      <span matTooltip="Verified Buyer" class="tooltip-icon">
+        <mat-icon>verified</mat-icon>
+      </span>
+    </div>
+    <div class="review-date">
+      <mat-icon class="date-icon">event</mat-icon>
+      {{ review.date | date : "longDate" }}
+    </div>
+    <p class="review-text">“{{ review.review }}”</p>
+    <div class="stars">
+      <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+        <mat-icon
+          *ngIf="i < review.rating"
+          class="star-icon"
+          matTooltip="Rating: {{ i + 1 }}"
+          >star</mat-icon
+        >
+        <mat-icon *ngIf="i >= review.rating" class="star-icon-empty"
+          >star_border</mat-icon
+        >
+      </ng-container>
+    </div>
+  </div>
+</div>

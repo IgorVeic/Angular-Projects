@@ -1,0 +1,16 @@
+.grid-container {
+  margin: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    margin: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    margin: 2px 5px;
+  }
+}

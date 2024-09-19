@@ -1,0 +1,130 @@
+<div class="outwrapper">
+  <div class="add-car-form">
+    <h1>Add Car For Sale</h1>
+    <h4>
+      List your car for sale to reach a wide audience and secure the best offer
+      quickly!
+    </h4>
+
+    <!-- Progress Bar -->
+    <mat-progress-bar
+      mode="determinate"
+      [value]="formProgress"
+      class="fancy-progress-bar"
+    ></mat-progress-bar>
+
+    <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Brand</mat-label>
+        <input matInput formControlName="brand" placeholder="Toyota" required />
+        <mat-error *ngIf="brandErrors">{{ brandErrors }}</mat-error>
+        <mat-icon *ngIf="carForm.get('brand')?.valid" class="success-icon"
+          >check_circle</mat-icon
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Model</mat-label>
+        <input
+          matInput
+          formControlName="model"
+          placeholder="Corolla"
+          required
+        />
+        <mat-error *ngIf="modelErrors">{{ modelErrors }}</mat-error>
+        <mat-icon *ngIf="carForm.get('model')?.valid" class="success-icon"
+          >check_circle</mat-icon
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <input
+          matInput
+          formControlName="price"
+          type="number"
+          placeholder="5000"
+          required
+        />
+        <mat-error *ngIf="priceErrors">{{ priceErrors }}</mat-error>
+        <mat-icon *ngIf="carForm.get('price')?.valid" class="success-icon"
+          >check_circle</mat-icon
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Year</mat-label>
+        <input
+          matInput
+          formControlName="year"
+          type="number"
+          placeholder="2005"
+          required
+        />
+        <mat-error *ngIf="yearErrors">{{ yearErrors }}</mat-error>
+        <mat-icon *ngIf="carForm.get('year')?.valid" class="success-icon"
+          >check_circle</mat-icon
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fuel Type</mat-label>
+        <input
+          matInput
+          formControlName="fuelType"
+          placeholder="Petrol"
+          required
+        />
+        <mat-error *ngIf="fuelTypeErrors">{{ fuelTypeErrors }}</mat-error>
+        <mat-icon *ngIf="carForm.get('fuelType')?.valid" class="success-icon"
+          >check_circle</mat-icon
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Transmission</mat-label>
+        <input
+          matInput
+          formControlName="transmission"
+          placeholder="Automatic"
+          required
+        />
+        <mat-error *ngIf="transmissionErrors">{{
+          transmissionErrors
+        }}</mat-error>
+        <mat-icon
+          *ngIf="carForm.get('transmission')?.valid"
+          class="success-icon"
+          >check_circle</mat-icon
+        >
+      </mat-form-field>
+
+      <div formArrayName="images">
+        <mat-form-field appearance="fill">
+          <mat-label>Image URL</mat-label>
+          <input
+            matInput
+            [formControlName]="0"
+            placeholder="Enter image URL"
+            required
+          />
+          <mat-error *ngIf="imagesErrors">{{ imagesErrors }}</mat-error>
+          <mat-icon *ngIf="carForm.get('images')?.valid" class="success-icon"
+            >check_circle</mat-icon
+          >
+        </mat-form-field>
+      </div>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        matTooltip="Click to add the car"
+        [disabled]="carForm.invalid"
+        class="submit-button"
+      >
+        Add Car
+      </button>
+    </form>
+  </div>
+</div>

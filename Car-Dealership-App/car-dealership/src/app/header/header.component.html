@@ -1,0 +1,44 @@
+<header>
+  <div class="header-container">
+    <div class="branding">
+      <img
+        src="logo-vice-city-cars.png"
+        alt="Vice City Cars Logo"
+        class="logo"
+      />
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <i class="fas fa-home"></i> Home
+          </a>
+        </li>
+        <li>
+          <a routerLink="/about" routerLinkActive="active">
+            <i class="fas fa-info-circle"></i> About
+          </a>
+        </li>
+        <li>
+          <a routerLink="/contact" routerLinkActive="active">
+            <i class="fas fa-envelope"></i> Contact
+          </a>
+        </li>
+        <li>
+          <a routerLink="/cars/add-car-for-sale" routerLinkActive="active">
+            <i class="fas fa-car"></i> Sell Your Car
+          </a>
+        </li>
+        <li>
+          <a routerLink="/compare-cars" routerLinkActive="active">
+            <i class="fas fa-exchange-alt"></i> Compare Cars
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

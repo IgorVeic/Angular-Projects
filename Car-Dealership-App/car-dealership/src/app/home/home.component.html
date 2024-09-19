@@ -1,0 +1,39 @@
+<div class="home-content">
+  <app-search
+    [searchTerm]="searchTerm()"
+    (onUpdateSearchTerm)="handleUpdateSearchTerm($event)"
+  ></app-search>
+
+  <app-filters
+    [fuelType]="fuelType()"
+    (onFuelTypeChange)="fuelType.set($event)"
+    [transmission]="transmission()"
+    (onTransmissionChange)="transmission.set($event)"
+    [carState]="carState()"
+    (onCarStateChange)="carState.set($event)"
+    [minimalPrice]="minimalPrice()"
+    (onMinimalPriceChange)="minimalPrice.set($event)"
+    [maximalPrice]="maximalPrice()"
+    (onMaximalPriceChange)="maximalPrice.set($event)"
+    [carColor]="carColor()"
+    (onCarColorChange)="carColor.set($event)"
+  ></app-filters>
+
+  <app-loader [isLoading]="isLoading()"></app-loader>
+
+  <app-cars [cars]="(cars$ | async) || []"></app-cars>
+
+  <mat-paginator
+    [length]="total()"
+    [pageSize]="pageSize()"
+    [pageSizeOptions]="[5, 10, 25, 50, 100]"
+    aria-label="Select page"
+    (page)="pageSize.set($event.pageSize); page.set($event.pageIndex)"
+  ></mat-paginator>
+
+  <app-reviews></app-reviews>
+
+  <app-why-choose-us></app-why-choose-us>
+
+  <app-scroll-to-top></app-scroll-to-top>
+</div>

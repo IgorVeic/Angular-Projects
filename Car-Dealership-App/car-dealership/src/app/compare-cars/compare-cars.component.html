@@ -1,0 +1,176 @@
+<div class="outwrapper">
+  <div class="compare-container">
+    <h1>Compare Cars</h1>
+    <p>Choose two cars to compare side-by-side.</p>
+
+    <div class="car-inputs">
+      <div class="input-group">
+        <label for="car1">Car 1 ID:</label>
+        <input
+          id="car1"
+          [(ngModel)]="carId1"
+          placeholder="Enter Car 1 ID"
+          aria-label="Enter Car 1 ID"
+        />
+      </div>
+      <div class="input-group">
+        <label for="car2">Car 2 ID:</label>
+        <input
+          id="car2"
+          [(ngModel)]="carId2"
+          placeholder="Enter Car 2 ID"
+          aria-label="Enter Car 2 ID"
+        />
+      </div>
+    </div>
+
+    <button
+      class="compare-button"
+      (click)="compareCars()"
+      [disabled]="!carId1 || !carId2"
+      aria-label="Compare cars"
+      matTooltip="Compare cars"
+    >
+      Compare
+    </button>
+    <button
+      class="reset-button"
+      (click)="resetComparison()"
+      [disabled]="!car1 && !car2"
+      aria-label="Reset comparison"
+      matTooltip="Reset comparison"
+    >
+      Reset
+    </button>
+
+    <!-- Loader -->
+    <div *ngIf="loading" class="loading-indicator">
+      <mat-spinner diameter="100"></mat-spinner>
+    </div>
+
+    <div
+      *ngIf="car1 && car2"
+      class="comparison-table"
+      [ngClass]="{ successful: comparisonSuccessful }"
+    >
+      <h3>Comparison Result</h3>
+      <table>
+        <tr>
+          <th>{{ car1.brand }} {{ car1.model }}</th>
+          <th>{{ car2.brand }} {{ car2.model }}</th>
+        </tr>
+        <tr>
+          <td>
+            <img
+              [src]="car1.images[0] || 'assets/placeholder-car.png'"
+              alt="{{ car1.model }} image"
+              class="car-image"
+            />
+          </td>
+          <td>
+            <img
+              [src]="car2.images[0] || 'assets/placeholder-car.png'"
+              alt="{{ car2.model }} image"
+              class="car-image"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fas fa-calendar-alt icon orange-icon"></i> {{ car1.year }}
+          </td>
+          <td>
+            <i class="fas fa-calendar-alt icon orange-icon"></i> {{ car2.year }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fas fa-dollar-sign icon orange-icon"></i>
+            {{ car1.price | number : "1.0-2" }}
+          </td>
+          <td>
+            <i class="fas fa-dollar-sign icon orange-icon"></i>
+            {{ car2.price | number : "1.0-2" }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fas fa-tachometer-alt icon orange-icon"></i>
+            {{ car1.enginePower }} HP
+          </td>
+          <td>
+            <i class="fas fa-tachometer-alt icon orange-icon"></i>
+            {{ car2.enginePower }} HP
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fas fa-gas-pump icon orange-icon"></i> {{ car1.fuelType }}
+          </td>
+          <td>
+            <i class="fas fa-gas-pump icon orange-icon"></i> {{ car2.fuelType }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fas fa-road icon orange-icon"></i> {{ car1.distance }} km
+          </td>
+          <td>
+            <i class="fas fa-road icon orange-icon"></i> {{ car2.distance }} km
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fas fa-paint-brush icon orange-icon"></i> {{ car1.color }}
+          </td>
+          <td>
+            <i class="fas fa-paint-brush icon orange-icon"></i> {{ car2.color }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fas fa-cogs icon orange-icon"></i> {{ car1.transmission }}
+          </td>
+          <td>
+            <i class="fas fa-cogs icon orange-icon"></i> {{ car2.transmission }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fas fa-car icon orange-icon"></i> {{ car1.seats }} Seats
+          </td>
+          <td>
+            <i class="fas fa-car icon orange-icon"></i> {{ car2.seats }} Seats
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fas fa-door-open icon orange-icon"></i>
+            {{ car1.doors }} Doors
+          </td>
+          <td>
+            <i class="fas fa-door-open icon orange-icon"></i>
+            {{ car2.doors }} Doors
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fas fa-shapes icon orange-icon"></i> {{ car1.type }}
+          </td>
+          <td>
+            <i class="fas fa-shapes icon orange-icon"></i> {{ car2.type }}
+          </td>
+        </tr>
+      </table>
+      <button
+        class="export-button"
+        (click)="exportAsCSV()"
+        [disabled]="!car1 || !car2"
+        aria-label="Export as CSV"
+        matTooltip="Export as CSV file"
+      >
+        Export as CSV
+      </button>
+    </div>
+  </div>
+</div>

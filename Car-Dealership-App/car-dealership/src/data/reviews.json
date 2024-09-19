@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "review": "Amazing experience! The process was smooth and the car is fantastic.",
+    "rating": 5,
+    "date": "2024-01-15T10:30:00Z"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "review": "Great service and a wonderful car. I am very satisfied with my purchase!",
+    "rating": 4,
+    "date": "2024-02-20T14:15:00Z"
+  },
+  {
+    "id": 3,
+    "name": "Michael Brown",
+    "review": "The car is great, and the customer service team was responsive and helpful throughout the process.",
+    "rating": 5,
+    "date": "2024-03-25T11:45:00Z"
+  },
+  {
+    "id": 4,
+    "name": "Emily White",
+    "review": "I love my new car! Thank you Vice City Cars!",
+    "rating": 5,
+    "date": "2024-04-30T09:20:00Z"
+  },
+  {
+    "id": 5,
+    "name": "David Johnson",
+    "review": "The best car buying experience I have ever had.",
+    "rating": 4,
+    "date": "2024-05-05T16:00:00Z"
+  },
+  {
+    "id": 6,
+    "name": "Sophia Davis",
+    "review": "Fast and easy transaction. Highly recommend!",
+    "rating": 5,
+    "date": "2024-06-10T12:30:00Z"
+  },
+  {
+    "id": 7,
+    "name": "James Wilson",
+    "review": "I'm very satisfied with my purchase.",
+    "rating": 5,
+    "date": "2024-07-15T15:10:00Z"
+  },
+  {
+    "id": 8,
+    "name": "Olivia Martinez",
+    "review": "The car is amazing, and the staff was very helpful.",
+    "rating": 4,
+    "date": "2024-08-20T13:50:00Z"
+  },
+  {
+    "id": 9,
+    "name": "Liam Garcia",
+    "review": "Great selection of cars and excellent customer service.",
+    "rating": 5,
+    "date": "2024-09-25T10:00:00Z"
+  },
+  {
+    "id": 10,
+    "name": "Isabella Hernandez",
+    "review": "The process was quick and easy. I love my new car!",
+    "rating": 5,
+    "date": "2024-10-30T18:20:00Z"
+  }
+]
