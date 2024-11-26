@@ -26,7 +26,7 @@ Vice City Cars is a feature-rich web application designed to facilitate car enth
 # Database:
 **PostgreSQL:** Reliable and powerful relational database for storing car, user, and transaction data.
 
-# Documentation
+# Documentation:
 - The backend API for Vice City Cars is documented using **Swagger** for easy reference and testing.
 - Access the Swagger UI: Once the backend server is running, navigate to **http://localhost:3000/api** to explore the API documentation.
 
