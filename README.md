@@ -48,7 +48,7 @@ To initialize the Vice City Cars application, follow these steps:
 **3. Start the Frontend Application:**
 
 - Open another terminal and navigate to the Car-Dealership-App directory.
-- Run the following command ng **serve** to start the Angular app.
+- Run the following command **ng serve** to start the Angular app.
 
 **4. Access the Application:**
 
