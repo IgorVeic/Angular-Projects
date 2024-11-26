@@ -33,24 +33,24 @@ Vice City Cars is a feature-rich web application designed to facilitate car enth
 # Application Setup Instructions 🚀
 To initialize the Vice City Cars application, follow these steps:
 
-# Backfill the Cars Data:
+**1. Backfill the Cars Data:**
 
 - Open the Swagger UI by navigating to http://localhost:3000/api.
 - Locate the endpoint: POST /api/cars/backfill.
 - Click **Try it out** and then **Execute** to populate the database with initial car data.
 - Verify that the cars have been added successfully by checking the database.
 
-**1. Start the Backend Server:**
+**2. Start the Backend Server:**
 
 - Open a terminal and navigate to the server directory.
 - Run the following command **npm run start:dev** to start the server in development mode.
 
-**2. Start the Frontend Application:**
+**3. Start the Frontend Application:**
 
 - Open another terminal and navigate to the Car-Dealership-App directory.
 - Run the following command ng **serve** to start the Angular app.
 
-**3. Access the Application:**
+**4. Access the Application:**
 
-The frontend will be available at **http://localhost:4200**.
-The backend API can be accessed at **http://localhost:3000**.
+- The frontend will be available at **http://localhost:4200**.
+- The backend API can be accessed at **http://localhost:3000**.
